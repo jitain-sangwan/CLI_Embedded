@@ -1,6 +1,6 @@
 /*!
-    \file  readme.txt
-    \brief description of running led example
+    \file    gd32e23x_it.h
+    \brief   the header file of the ISR
     
     \version 2019-02-19, V1.0.0, firmware for GD32E23x
     \version 2022-07-14, V1.1.0, firmware for GD32E23x
@@ -33,8 +33,29 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 OF SUCH DAMAGE.
 */
 
-  This example is based on the GD32E230G-START-V1.0 board, it provides a description
-of Running LED. After system start-up, firstly, LED1 on, then, LED1 off, the LED can 
-light periodically.
+#ifndef GD32E23X_IT_H
+#define GD32E23X_IT_H
 
-  On the GD32E230G-START board, LED1 is connected to PA1.
+#include "gd32e23x.h"
+
+/* function declarations */
+/* this function handles NMI exception */
+void NMI_Handler(void);
+/* this function handles HardFault exception */
+void HardFault_Handler(void);
+/* this function handles MemManage exception */
+void MemManage_Handler(void);
+/* this function handles BusFault exception */
+void BusFault_Handler(void);
+/* this function handles UsageFault exception */
+void UsageFault_Handler(void);
+/* this function handles SVC exception */
+void SVC_Handler(void);
+/* this function handles DebugMon exception */
+void DebugMon_Handler(void);
+/* this function handles PendSV exception */
+void PendSV_Handler(void);
+/* this function handles SysTick exception */
+void SysTick_Handler(void);
+
+#endif /* GD32E23X_IT_H */

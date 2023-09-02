@@ -1,6 +1,6 @@
 /*!
-    \file  readme.txt
-    \brief description of running led example
+    \file    systick.c
+    \brief   the systick configuration file
     
     \version 2019-02-19, V1.0.0, firmware for GD32E23x
     \version 2022-07-14, V1.1.0, firmware for GD32E23x
@@ -33,8 +33,53 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 OF SUCH DAMAGE.
 */
 
-  This example is based on the GD32E230G-START-V1.0 board, it provides a description
-of Running LED. After system start-up, firstly, LED1 on, then, LED1 off, the LED can 
-light periodically.
+#include "gd32e23x.h"
+#include "systick.h"
 
-  On the GD32E230G-START board, LED1 is connected to PA1.
+volatile static uint32_t delay;
+
+/*!
+    \brief      configure systick
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
+void systick_config(void)
+{
+    /* setup systick timer for 1000Hz interrupts */
+    if (SysTick_Config(SystemCoreClock / 1000U)){
+        /* capture error */
+        while (1){
+        }
+    }
+    /* configure the systick handler priority */
+    NVIC_SetPriority(SysTick_IRQn, 0x00U);
+}
+
+/*!
+    \brief      delay a time in milliseconds
+    \param[in]  count: count in milliseconds
+    \param[out] none
+    \retval     none
+*/
+void delay_1ms(uint32_t count)
+{
+    delay = count;
+
+    while(0U != delay){
+			delay_decrement();
+    }
+}
+
+/*!
+    \brief      delay decrement
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
+void delay_decrement(void)
+{
+    if (0U != delay){
+        delay--;
+    }
+}

@@ -1,6 +1,6 @@
 /*!
-    \file  readme.txt
-    \brief description of running led example
+    \file    systick.h
+    \brief   the header file of systick
     
     \version 2019-02-19, V1.0.0, firmware for GD32E23x
     \version 2022-07-14, V1.1.0, firmware for GD32E23x
@@ -33,8 +33,16 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 OF SUCH DAMAGE.
 */
 
-  This example is based on the GD32E230G-START-V1.0 board, it provides a description
-of Running LED. After system start-up, firstly, LED1 on, then, LED1 off, the LED can 
-light periodically.
+#ifndef SYS_TICK_H
+#define SYS_TICK_H
 
-  On the GD32E230G-START board, LED1 is connected to PA1.
+#include <stdint.h>
+
+/* configure systick */
+void systick_config(void);
+/* delay a time in milliseconds */
+void delay_1ms(uint32_t count);
+/* delay decrement */
+void delay_decrement(void);
+
+#endif /* SYS_TICK_H */

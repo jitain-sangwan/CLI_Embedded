@@ -1,6 +1,6 @@
 /*!
-    \file  readme.txt
-    \brief description of running led example
+    \file    gd32e23x_libopt.h
+    \brief   library optional for gd32e23x
     
     \version 2019-02-19, V1.0.0, firmware for GD32E23x
     \version 2022-07-14, V1.1.0, firmware for GD32E23x
@@ -33,8 +33,27 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 OF SUCH DAMAGE.
 */
 
-  This example is based on the GD32E230G-START-V1.0 board, it provides a description
-of Running LED. After system start-up, firstly, LED1 on, then, LED1 off, the LED can 
-light periodically.
+#ifndef GD32E23X_LIBOPT_H
+#define GD32E23X_LIBOPT_H
 
-  On the GD32E230G-START board, LED1 is connected to PA1.
+#include "gd32e23x_adc.h"
+#include "gd32e23x_crc.h"
+#include "gd32e23x_dbg.h"
+#include "gd32e23x_dma.h"
+#include "gd32e23x_exti.h"
+#include "gd32e23x_fmc.h"
+#include "gd32e23x_gpio.h"
+#include "gd32e23x_syscfg.h"
+#include "gd32e23x_i2c.h"
+#include "gd32e23x_fwdgt.h"
+#include "gd32e23x_pmu.h"
+#include "gd32e23x_rcu.h"
+#include "gd32e23x_rtc.h"
+#include "gd32e23x_spi.h"
+#include "gd32e23x_timer.h"
+#include "gd32e23x_usart.h"
+#include "gd32e23x_wwdgt.h"
+#include "gd32e23x_misc.h"
+#include "gd32e23x_cmp.h"
+
+#endif /* GD32E23X_LIBOPT_H */
